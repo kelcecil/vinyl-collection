@@ -1,25 +1,12 @@
 extern crate pencil;
+extern crate vinyl_collection;
 
-use pencil::{Pencil, Request, Response, PencilResult};
-
-fn new_vinyl(req: &mut Request) -> PencilResult {
-    let json = req.get_json();
-    match *json {
-        Some(ref x) =>
-            match x.search("name") {
-                Some(name) => {
-                    let unwrapped_name = name.as_string().unwrap();
-                    Ok(Response::from(unwrapped_name))
-                },
-                None => Ok(Response::from("No name")),
-            },
-        None => Ok(Response::from("No JSON")),
-    }
-}
+use pencil::{Pencil};
+use self::vinyl_collection::new_vinyl::add_new_vinyl;
 
 fn main() {
     let mut app = Pencil::new("/web/hello");
-    app.post("/vinyl/new", "new_vinyl", new_vinyl);
+    app.post("/vinyl/new", "new_vinyl", add_new_vinyl);
     println!("Running app");
     app.run("127.0.0.1:5000");
 }

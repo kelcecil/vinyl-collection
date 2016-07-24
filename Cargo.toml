@@ -1,5 +1,5 @@
 [package]
-name = "vinyl-collection"
+name = "vinyl_collection"
 version = "0.1.0"
 authors = ["Kel Cecil <kelcecil@praisechaos.com>"]
 

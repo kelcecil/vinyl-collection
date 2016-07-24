@@ -1,5 +1,5 @@
 CREATE TABLE vinyl (
   id SERIAL PRIMARY KEY,
   title VARCHAR NOT NULL,
-  album VARCHAR NOT NULL
+  artist VARCHAR NOT NULL
 )

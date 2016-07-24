@@ -1,19 +1,22 @@
 #![feature(custom_derive, custom_attribute, plugin)]
 #![plugin(diesel_codegen, dotenv_macros)]
-#[macro_use]
 
 extern crate pencil;
-
-pub mod new_vinyl;
+extern crate rustc_serialize;
 
 // Diesel reqs
-extern crate diesel;
+#[macro_use] extern crate diesel;
 extern crate dotenv;
 
 use diesel::prelude::*;
 use diesel::pg::PgConnection;
 use dotenv::dotenv;
 use std::env;
+
+pub mod models;
+pub mod schema;
+
+pub mod new_vinyl;
 
 pub fn establish_connection() -> PgConnection {
     dotenv().ok();

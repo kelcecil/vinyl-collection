@@ -17,6 +17,7 @@ pub mod models;
 pub mod schema;
 
 pub mod new_vinyl;
+pub mod remove_vinyl;
 
 pub fn establish_connection() -> PgConnection {
     dotenv().ok();

@@ -31,7 +31,7 @@ pub fn add_new_vinyl(req: &mut Request) -> PencilResult {
     }
 }
 
-pub fn create_vinyl<'a>(conn: &PgConnection, title: &'a str, artist: &'a str) -> Vinyl {
+fn create_vinyl<'a>(conn: &PgConnection, title: &'a str, artist: &'a str) -> Vinyl {
     use schema::vinyl;
 
     let new_vinyl = NewVinyl {
